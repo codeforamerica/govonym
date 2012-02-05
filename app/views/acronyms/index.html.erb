@@ -1,0 +1,23 @@
+<h1>Listing acronyms</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @acronyms.each do |acronym| %>
+  <tr>
+    <td><%= acronym.name %></td>
+    <td><%= link_to 'Show', acronym %></td>
+    <td><%= link_to 'Edit', edit_acronym_path(acronym) %></td>
+    <td><%= link_to 'Destroy', acronym, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Acronym', new_acronym_path %>

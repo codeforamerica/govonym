@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AcroynmTest < ActiveSupport::TestCase
+class AcronymTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

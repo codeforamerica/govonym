@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120201215209) do
+ActiveRecord::Schema.define(:version => 20120203055758) do
 
-  create_table "acroynms", :force => true do |t|
+  create_table "acronyms", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20120201215209) do
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "acroynm_id"
   end
 
   create_table "tags", :force => true do |t|

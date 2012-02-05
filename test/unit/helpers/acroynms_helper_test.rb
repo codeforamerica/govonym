@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class AcroynmsHelperTest < ActionView::TestCase
+class AcronymsHelperTest < ActionView::TestCase
 end

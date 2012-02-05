@@ -1,8 +1,12 @@
 class DefinitionsController < ApplicationController
+  
+  before_filter :find_acroynm
+  
   # GET /definitions
   # GET /definitions.json
   def index
-    @definitions = Definition.all
+    #@definitions = Definition.all
+    @definitions = @acronym.definitions.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +29,7 @@ class DefinitionsController < ApplicationController
   # GET /definitions/new.json
   def new
     @definition = Definition.new
-
+        
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @definition }
@@ -40,7 +44,8 @@ class DefinitionsController < ApplicationController
   # POST /definitions
   # POST /definitions.json
   def create
-    @definition = Definition.new(params[:definition])
+    #@definition = Definition.new(params[:definition])
+    @definition = @acronym.definitions.new(params[:definition])
 
     respond_to do |format|
       if @definition.save
@@ -80,4 +85,13 @@ class DefinitionsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  # other CRUD actions
+  
+  private
+  
+    def find_acroynm
+      @acronym = Acronym.find(params[:acroynm_id])
+    end
+  
 end
