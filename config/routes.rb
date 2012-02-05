@@ -1,14 +1,20 @@
 Govonym::Application.routes.draw do
-    
-  get "main/index"
-
+  
+  match 'main/:name' => 'main#show'
+  
   resources :acronyms do
     resources :definitions
   end
-
+  
   resources :acronymns
   resources :definitions    
   resources :tags
+    
+  resources :main do
+    collection do
+        get 'search/:id' => 'main#show'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
