@@ -5,8 +5,6 @@ class MainController < ApplicationController
   end
   
   def show    
-    #@acronym = Acronym.where("name = ?", params[id])
-    #@acronym = Acronym.find(params[:id])
     @acronyms = Acronym.where("name LIKE ?", "#{params[:name]}%")
     logger.debug {"results = " + @acronyms.inspect} 
     

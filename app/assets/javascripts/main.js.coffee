@@ -4,18 +4,33 @@
 
 $(document).ready ->
 
+    valueExists = (value, names) ->
+        for name in names
+            return true if value is name
+        false
+ 
     $('#q').keyup () ->
 
-        console.log($(this).val().toUpperCase())
-        $(this).val($(this).val().toUpperCase())
+        searchFieldValue = $(this).val().toUpperCase()
+        $(this).val(searchFieldValue)
 
         $.getJSON "main/" + $(this).val() + ".json", (data) ->
 
+           $('.my-new-list').remove()
+           $('.add-new-entry').remove()
+
            items = []
+           names = []
            $.each data, (key, val) ->
+              names.push(val["name"])            
               items.push "<li id=\"" + key + "\">" + val["name"] + "</li>"
 
-           $('.my-new-list').remove()
+           if !valueExists(searchFieldValue, names)
+               $("<span>",
+                   class: "add-new-entry"
+                   html: "<br />" + searchFieldValue + " does not exist. <a href='acronyms/new'>add it?</a>"
+               ).appendTo "body"
+
            $("<ul/>",
                class: "my-new-list"
                html: items.join("")
