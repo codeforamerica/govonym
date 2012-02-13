@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20120203055758) do
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "acroynm_id"
+    t.integer  "acronym_id"
   end
 
   create_table "tags", :force => true do |t|

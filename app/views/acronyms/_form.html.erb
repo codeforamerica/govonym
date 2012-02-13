@@ -15,6 +15,17 @@
     <%= f.text_field :name %>
   </div>
 
+  <%= f.fields_for :definitions do |builder| %>
+	<p>
+	  <div class="field">
+	    <%= builder.label :text, "Definition" %><br />
+	    <%= builder.text_field :text %>
+        <%= builder.check_box :_destroy %>
+        <%= builder.label :_destroy, "Remove Definition" %>
+	  </div>
+	</p>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

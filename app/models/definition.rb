@@ -1,3 +1,3 @@
 class Definition < ActiveRecord::Base
-  belongs_to :acroynm
+  belongs_to :acronym
 end

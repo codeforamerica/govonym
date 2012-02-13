@@ -1,5 +1,5 @@
 class AddAcronymIdToDefinition < ActiveRecord::Migration
   def change
-    add_column :definitions, :acroynm_id, :integer
+    add_column :definitions, :acronym_id, :integer
   end
 end

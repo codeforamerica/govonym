@@ -13,8 +13,7 @@ class AcronymsController < ApplicationController
   # GET /acronyms/1
   # GET /acronyms/1.json
   def show
-    @acronym = Acronym.find(params[:id])
-    @definition = Definition.new
+    @acronym = Acronym.find(params[:id])    
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +25,7 @@ class AcronymsController < ApplicationController
   # GET /acronyms/new.json
   def new
     @acronym = Acronym.new
+    3.times { @acronym.definitions.build }
 
     respond_to do |format|
       format.html # new.html.erb

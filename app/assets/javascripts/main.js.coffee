@@ -24,6 +24,14 @@ $(document).ready ->
            $.each data, (key, val) ->
               names.push(val["name"])            
               items.push "<li id=\"" + key + "\">" + val["name"] + "</li>"
+              i = 0
+              definitions = val["definitions"]
+              items.push "<ul>"
+              while i < definitions.length
+                  items.push "<li>" + definitions[i]["text"] + "</li>"                   
+                  i++
+              items.push "</ul>"
+              items
 
            if !valueExists(searchFieldValue, names)
                $("<span>",
